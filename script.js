@@ -1,6 +1,7 @@
 //Make board
 let chessBoard = new Map();
 
+//functions
 function drawBoard() { //add the vertices (boxes on board)
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
@@ -37,4 +38,34 @@ function addEdges() {
             }
         }
     }
+}
+
+function knightMoves(start, end) {
+    let paths = [];
+    let visited = new Set();
+    let myQueue = [];
+
+    myQueue.push([start, [start]]); // initialize queue
+
+    while (myQueue.length) {
+        let [current, path] = myQueue.shift();
+        visited.add(current);
+
+        if (current === end) { // find shallowest-shortest route
+            paths.push(path);
+            break;
+        }
+
+        const neighbours = chessBoard.get(current);
+
+        for (let box of neighbours) {
+            if (!visited.has(box)) {
+                myQueue.push([box, [...path, box]]);
+            }
+        }
+    }
+
+    console.log(`Fastest route from ${start} to ${end}`);
+
+    paths[0].forEach(box => console.log(box));
 }
