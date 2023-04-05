@@ -69,3 +69,9 @@ function knightMoves(start, end) {
 
     paths[0].forEach(box => console.log(box));
 }
+
+//driver code
+drawBoard();
+addEdges();
+
+knightMoves('0,0', '7,7');
