@@ -2,7 +2,7 @@
 
 Caution: The name of the repository has been mispelt from knightTravails to nightTravails
 
-#Features
+# Features
 
 1. The chessBoard is implemented using a map. This is so that the chessBoard boxes can have values of 
     their neighbors where the knight can move to.
